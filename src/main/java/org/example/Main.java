@@ -40,18 +40,18 @@ public class Main {
                 }
 
 
-            } if (cmd.equals("삭제")){
+            }
+            if (cmd.equals("삭제")){
                 System.out.printf("?id=");
                 k = sc.nextInt();
-                if (k == id) {
-                    System.out.println(k + "번 명언이 삭제되었습니다.");
-                    contentmap.remove(id);
-                    authormap.remove(id);
 
-                }
+                System.out.println(k + "번 명언이 삭제되었습니다.");
+                contentmap.remove(k);
+                authormap.remove(k);
+
+
 
             }
-
             if (cmd.equals("종료")) {
                 break;
             }
