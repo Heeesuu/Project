@@ -7,9 +7,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         int id = 0;
+        int k = 0;
         Scanner sc = new Scanner(System.in);
         Map<Integer, String> contentmap = new HashMap<>();
         Map<Integer, String> authormap = new HashMap<>();
+
 
         System.out.println("== 명언 앱 ==");
         while (true) {
@@ -38,8 +40,17 @@ public class Main {
                 }
 
 
-            }
+            } if (cmd.equals("삭제")){
+                System.out.printf("?id=");
+                k = sc.nextInt();
+                if (k == id) {
+                    System.out.println(k + "번 명언이 삭제되었습니다.");
+                    contentmap.remove(id);
+                    authormap.remove(id);
 
+                }
+
+            }
 
             if (cmd.equals("종료")) {
                 break;
