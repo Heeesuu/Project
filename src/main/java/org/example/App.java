@@ -10,9 +10,12 @@ public class App {
         this.sc = sc;
     }
     public void run(){
+        long lastWiseSayingId = 1;
+
         System.out.println("== 명언 앱 ==");
 
         while (true) {
+
             System.out.print("명령 ) ");
             String command = sc.nextLine().trim();
             //trim() : 좌우 공백을 제거해준다.
@@ -25,7 +28,8 @@ public class App {
                 System.out.print("작가 : ");
                 String authorName = sc.nextLine().trim();
 
-                System.out.println("1번 명언이 등록되었습니다.");
+                System.out.printf("%d번 명언이 등록되었습니다.\n", lastWiseSayingId);
+                lastWiseSayingId++;
             }
         }
     }
