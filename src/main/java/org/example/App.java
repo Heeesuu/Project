@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -10,7 +12,8 @@ public class App {
         this.sc = sc;
     }
     public void run(){
-        long lastWiseSayingId = 1;
+        long lastWiseSayingId = 0;
+        List<WiseSaying> wiseSayings = new ArrayList<>();
 
         System.out.println("== 명언 앱 ==");
 
@@ -23,13 +26,22 @@ public class App {
             if (command.equals("종료")) {
                 break;
             } else if (command.equals("등록")) {
+                long id = lastWiseSayingId + 1;
                 System.out.print("명언 : ");
                 String content = sc.nextLine().trim();
                 System.out.print("작가 : ");
                 String authorName = sc.nextLine().trim();
 
-                System.out.printf("%d번 명언이 등록되었습니다.\n", lastWiseSayingId);
-                lastWiseSayingId++;
+                WiseSaying wiseSaying = new WiseSaying(id, content, authorName);
+                //위에서 적은 항목들을 받아서 객체를 생성했음
+                //wiseSaying이라는 객체에 list를 만들어야 의미가 있음
+                wiseSayings.add(wiseSaying);
+                //위에서 만든 리모콘을 아래로 복사하여 wiseSayings라는 리스트에 저장
+
+                System.out.printf("%d번 명언이 등록되었습니다.\n", id);
+                lastWiseSayingId = id;
+            } else if (command.equals("목록")) {
+                System.out.printf("생성된 명언 수 : %d\n", wiseSayings.size());
             }
         }
     }
