@@ -9,6 +9,5 @@ public class Main {
         Container.init();
         new App().run();
         Container.close();
-        //꺼주는 것은 필요함
     }
 }

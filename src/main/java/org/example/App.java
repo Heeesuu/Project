@@ -18,36 +18,24 @@ public class App {
         System.out.println("== 명언 앱 ==");
 
         while (true) {
-
             System.out.print("명령 ) ");
-            String command = Container.getScanner().nextLine().trim();
             //trim() : 좌우 공백을 제거해준다.
+            String command = Container.getScanner().nextLine().trim();
+            Rq rq = new Rq(command);
 
-            if (command.equals("종료")) {
-                systemController.exit();
-
-                break;
-
-            } else if (command.equals("등록")) {
-                WiseSayingController.write();
-
-            } else if (command.equals("목록")) {
-                WiseSayingController.list();
-            } else if (command.startsWith("삭제")){
-                //정리시작
-                Rq rq = new Rq(command);
-
-                System.out.printf("actionCode : %s\n", rq.getActionCode());
-                System.out.printf("params.id : %s\n", rq.getParam("id"));
-                System.out.printf("params.authorName : %s\n", rq.getParam("authorName"));
-                System.out.printf("params.content : %s\n", rq.getParam("content"));
-
-                //정리끝
-
-                wiseSayingController.remove();
+            switch (rq.getActionCode()) {
+                case "종료":
+                    systemController.exit();
+                    return;
+                case "등록":
+                    wiseSayingController.write();
+                    break;
+                case "목록":
+                    wiseSayingController.list();
+                    break;
+                case "삭제":
+                    wiseSayingController.remove();
             }
-
-
         }
     }
 }
