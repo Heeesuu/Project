@@ -45,9 +45,13 @@ public class Main {
                 System.out.printf("?id=");
                 k = sc.nextInt();
 
-                System.out.println(k + "번 명언이 삭제되었습니다.");
-                contentmap.remove(k);
-                authormap.remove(k);
+                if (contentmap.get(k) != null) {
+                    System.out.println(k + "번 명언이 삭제되었습니다.");
+                    contentmap.remove(k);
+                    authormap.remove(k);
+                } else {
+                    System.out.println(k + "번 명언은 존재하지 않습니다.");
+                }
 
 
 
