@@ -18,6 +18,9 @@ public class Rq {
 
         for (String paramStr : paramBits) {
             String[] paramStrBits = paramStr.split("=", 2);
+
+            if ( paramStrBits.length == 1) continue;
+
             String key = paramStrBits[0];
             String value = paramStrBits[1];
 

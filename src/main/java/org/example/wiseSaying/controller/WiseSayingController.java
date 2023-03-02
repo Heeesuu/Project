@@ -1,11 +1,11 @@
 package org.example.wiseSaying.controller;
 
 import org.example.Container;
+import org.example.Rq;
 import org.example.wiseSaying.entity.WiseSaying;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class WiseSayingController {
 
@@ -13,7 +13,7 @@ public class WiseSayingController {
     private static List<WiseSaying> wiseSayings;
 
 
-    public WiseSayingController(){
+    public WiseSayingController() {
         lastWiseSayingId = 0;
         wiseSayings = new ArrayList<>();
     }
@@ -46,6 +46,17 @@ public class WiseSayingController {
         }
     }
 
-    public void remove() {
+    public void remove(Rq rq) {
+        int id = 0;
+
+        try {
+            Integer.parseInt(rq.getParam("id"));
+
+        } catch (NumberFormatException e) {
+            System.out.printf("id(정수)를 입력해주세요");
+            return;
+        }
+
+        System.out.printf("%d번 명언이 삭제되었습니다 \n", id);
     }
 }
