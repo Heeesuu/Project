@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.wiseSaying.entity.WiseSaying;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -46,7 +48,7 @@ public class App {
                 System.out.println("-".repeat(30));
 
                 for (int i = 0; i < wiseSayings.size(); i++){
-                    WiseSaying wiseSaying = wiseSayings.get(i);
+                    WiseSaying wiseSaying = wiseSayings.get(i);//?
 
                     System.out.printf("%d / %s / %s\n", wiseSaying.getId(), wiseSaying.getAuthorName(), wiseSaying.getContent());
                 }
