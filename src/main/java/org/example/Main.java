@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
         int id = 0;
         int k = 0;
+        String newcontent;
+        String newauthor;
         Scanner sc = new Scanner(System.in);
         Map<Integer, String> contentmap = new HashMap<>();
         Map<Integer, String> authormap = new HashMap<>();
@@ -53,9 +55,25 @@ public class Main {
                     System.out.println(k + "번 명언은 존재하지 않습니다.");
                 }
 
+            }
 
+            if (cmd.equals("수정")) {
+                System.out.printf("?id=");
+                k = sc.nextInt();
+
+                System.out.println("명언(기존) : " + contentmap.get(k));
+                System.out.printf("명언 : ");
+                sc.nextLine();
+                newcontent = sc.nextLine();
+                contentmap.put(k, newcontent);
+
+                System.out.println("작가(기존) : " + authormap.get(k));
+                System.out.printf("작가 : ");
+                newauthor = sc.nextLine();
+                authormap.put(k, newauthor);
 
             }
+
             if (cmd.equals("종료")) {
                 break;
             }
