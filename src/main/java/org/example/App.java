@@ -35,26 +35,16 @@ public class App {
                 WiseSayingController.list();
             } else if (command.startsWith("삭제")){
                 //정리시작
+                Rq rq = new Rq(command);
 
-                String[] commandBits = command.split("\\?",2); // ?를 기준으로 최대 두개까지 나눈다.
-                String actionCode = commandBits[0];
-
-                Map<String, String> params = new HashMap<>();
-
-                String[] paramBits = commandBits[1].split("&");
-
-                for (String paramStr : paramBits) {
-                    String[] paramStrBits = paramStr.split("=", 2);
-                    String key = paramStrBits[0];
-                    String value = paramStrBits[1];
-
-                    params.put(key, value);
-                }
-
-                System.out.printf("actionCode : %s\n", actionCode);
-                System.out.printf("params : %s\n", params);
+                System.out.printf("actionCode : %s\n", rq.getActionCode());
+                System.out.printf("params.id : %s\n", rq.getParam("id"));
+                System.out.printf("params.authorName : %s\n", rq.getParam("authorName"));
+                System.out.printf("params.content : %s\n", rq.getParam("content"));
 
                 //정리끝
+
+                wiseSayingController.remove();
             }
 
 
