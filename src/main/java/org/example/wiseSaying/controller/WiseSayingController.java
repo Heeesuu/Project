@@ -4,6 +4,7 @@ import org.example.Container;
 import org.example.Rq;
 import org.example.wiseSaying.entity.WiseSaying;
 import org.example.wiseSaying.service.WiseSayingService;
+import org.example.wiseSaying.repository.WiseSayingRepository;
 
 import java.util.List;
 
