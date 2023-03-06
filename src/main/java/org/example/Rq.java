@@ -39,7 +39,7 @@ public class Rq {
     }
 
 
-    public int getIntParam(String name, int defaultValue) {
+    public long getLongParam(String name, long defaultValue) {
         try {
             return Integer.parseInt(getParam(name));
         } catch (NumberFormatException e) {
